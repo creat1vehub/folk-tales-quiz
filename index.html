@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Квиз по сказкам малых народов России</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="startScreen">
+
+<div class="titleBox">
+<h1>Квиз по сказкам малых народов России</h1>
+</div>
+
+<img src="people.png" class="hero">
+
+<div class="rules">
+<h2>Правила игры</h2>
+<p>1. Команды выбирают категорию и стоимость вопроса.</p>
+<p>2. После выбора появляется вопрос.</p>
+<p>3. Нажмите «Показать ответ», чтобы увидеть правильный ответ.</p>
+<p>4. Использованные вопросы становятся серыми.</p>
+</div>
+
+<button id="startGame">Начать игру</button>
+
+</div>
+
+<div id="boardWrapper" class="hidden">
+<div id="board"></div>
+</div>
+
+<div id="modal" class="hidden">
+  <div class="card">
+    <div id="question"></div>
+    <div id="source"></div>
+    <button id="showAnswer">Показать ответ</button>
+    <div id="answer" class="hidden"></div>
+    <button id="back">Назад к полю</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
