@@ -180,3 +180,55 @@ border-radius:8px;
 background:#7b9acc;
 color:white;
 }
+
+
+/* TEAM SETUP CENTER */
+#teamSetup{
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+height:70vh;
+font-size:28px;
+}
+
+#teamSetup input{
+font-size:24px;
+padding:6px 10px;
+margin:6px;
+}
+
+#teamSetup button{
+font-size:28px;
+padding:16px 40px;
+margin-top:10px;
+}
+
+/* SCOREBOARD BIGGER */
+#scoreBoard{
+font-size:26px;
+width:200px;
+}
+
+#scoreBoard h3{
+font-size:30px;
+margin-top:0;
+}
+
+/* JUDGE BUTTON COLORS */
+#correct{
+background:#8fd19e !important;
+}
+
+#wrong{
+background:#e7a0a0 !important;
+}
+
+#scoreBoard{
+font-size:34px !important;
+width:230px;
+}
+
+#scoreBoard h3{
+font-size:38px !important;
+}

@@ -1,4 +1,52 @@
 
+let teams=[];
+let scoresBoard=[];
+let currentTeam=0;
+let currentValue=0;
+
+function renderScores(){
+const box=document.getElementById("scores");
+box.innerHTML="";
+teams.forEach((t,i)=>{
+let div=document.createElement("div");
+div.innerText=t+": "+scoresBoard[i];
+if(i===currentTeam){div.style.background="#ffe9a8";div.style.fontWeight='bold';}
+box.appendChild(div);
+});
+}
+
+document.getElementById("startGame").onclick=()=>{
+document.getElementById("startScreen").classList.add("hidden");
+document.getElementById("teamSetup").classList.remove("hidden");
+
+let countInput=document.getElementById("teamCount");
+let teamInputs=document.getElementById("teamInputs");
+
+function buildInputs(){
+teamInputs.innerHTML="";
+for(let i=0;i<countInput.value;i++){
+let inp=document.createElement("input");
+inp.placeholder="Команда "+(i+1);
+teamInputs.appendChild(inp);
+teamInputs.appendChild(document.createElement("br"));
+}
+}
+buildInputs();
+countInput.onchange=buildInputs;
+
+document.getElementById("startQuiz").onclick=()=>{
+teams=[...teamInputs.querySelectorAll("input")].map(i=>i.value||"Команда");
+scoresBoard=teams.map(()=>0);
+renderScores();
+
+document.getElementById("teamSetup").classList.add("hidden");
+document.getElementById("boardWrapper").classList.remove("hidden");
+document.getElementById("scoreBoard").classList.remove("hidden");
+};
+};
+
+
+
 const categories=[
 "Превращение и облик",
 "Состязание и испытание",
@@ -41,10 +89,7 @@ const qa=[
 ["На чём ехал Кутха?","На нарте","Ительменская сказка"]
 ];
 
-document.getElementById("startGame").onclick=()=>{
-document.getElementById("startScreen").classList.add("hidden");
-document.getElementById("boardWrapper").classList.remove("hidden");
-};
+
 
 const board=document.getElementById("board");
 let index=0;
@@ -63,10 +108,12 @@ tile.className="tile v"+score;
 tile.innerText=score;
 
 let q=qa[index][0];
+let value=score;
 let a=qa[index][1];
 let s=qa[index][2];
 
 tile.onclick=()=>{
+currentValue=value;
 
 if(tile.classList.contains("used")) return;
 
@@ -86,10 +133,42 @@ index++;
 });
 });
 
+
+document.getElementById("judgeButtons").style.display="none";
 document.getElementById("showAnswer").onclick=()=>{
+
+
 document.getElementById("answer").classList.remove("hidden");
+document.getElementById("judgeButtons").style.display="block";
+
 };
 
 document.getElementById("back").onclick=()=>{
+document.getElementById("modal").classList.add("hidden");
+};
+
+
+document.getElementById("correct").onclick=()=>{
+scoresBoard[currentTeam]+=currentValue;
+if(scoresBoard[currentTeam]>=100){
+
+document.body.innerHTML=`
+<div style="display:flex;justify-content:center;align-items:center;height:100vh;font-family:Arial;background:#f4f2ed;">
+<div style="text-align:center;font-size:60px;">
+🏆 Победила команда:<br><b>${teams[currentTeam]}</b>
+</div>
+</div>
+`;
+
+location.reload();
+}
+currentTeam=(currentTeam+1)%teams.length;
+renderScores();
+document.getElementById("modal").classList.add("hidden");
+};
+
+document.getElementById("wrong").onclick=()=>{
+currentTeam=(currentTeam+1)%teams.length;
+renderScores();
 document.getElementById("modal").classList.add("hidden");
 };

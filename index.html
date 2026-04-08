@@ -17,19 +17,38 @@
 <img src="people.png" class="hero">
 
 <div class="rules">
+
 <h2>Правила игры</h2>
-<p>1. Команды выбирают категорию и стоимость вопроса.</p>
-<p>2. После выбора появляется вопрос.</p>
-<p>3. Нажмите «Показать ответ», чтобы увидеть правильный ответ.</p>
-<p>4. Использованные вопросы становятся серыми.</p>
+<p>1. Команды по очереди выбирают категорию и стоимость вопроса.</p>
+<p>2. За правильный ответ команда получает баллы вопроса.</p>
+<p>3. Неверный ответ — баллы не начисляются.</p>
+<p>4. Использованные вопросы становятся недоступны.</p>
+<p>5. Побеждает команда, первой набравшая <b>100 баллов</b>.</p>
 </div>
+
+
 
 <button id="startGame">Начать игру</button>
 
+
+</div>
+
+
+<div id="teamSetup" class="hidden" style="text-align:center;margin-top:30px;">
+<h2>Введите команды</h2>
+Количество команд:
+<input id="teamCount" type="number" value="2" min="2" max="6">
+<div id="teamInputs"></div>
+<button id="startQuiz">Начать квиз</button>
 </div>
 
 <div id="boardWrapper" class="hidden">
 <div id="board"></div>
+</div>
+
+<div id="scoreBoard" class="hidden" style="position:fixed;right:30px;top:30px;background:white;padding:20px;border-radius:10px;">
+<h3>Счёт</h3>
+<div id="scores"></div>
 </div>
 
 <div id="modal" class="hidden">
@@ -38,7 +57,13 @@
     <div id="source"></div>
     <button id="showAnswer">Показать ответ</button>
     <div id="answer" class="hidden"></div>
-    <button id="back">Назад к полю</button>
+    
+<div id="judgeButtons" style="margin-top:20px;">
+<button id="correct">Правильно</button>
+<button id="wrong">Неправильно</button>
+</div>
+<button id="back">Назад к полю</button>
+
   </div>
 </div>
 
