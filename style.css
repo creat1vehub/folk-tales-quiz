@@ -4,6 +4,7 @@ margin:0;
 font-family:Arial;
 color:#2b2b2b;
 text-align:center;
+min-height:100vh;
 
 /* lighter ethnic stripes */
 background:
@@ -78,6 +79,7 @@ display:flex;
 justify-content:center;
 margin-top:40px;
 padding:40px;
+padding-bottom:80px;
 }
 
 #boardWrapper{
