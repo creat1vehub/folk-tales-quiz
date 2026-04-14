@@ -1,65 +1,67 @@
-body{
-margin:0;
-font-family:Arial, sans-serif;
-background: repeating-linear-gradient(
-90deg,
-#c96 0px,
-#c96 30px,
-#e6cfa5 30px,
-#e6cfa5 60px,
-#7fa6a8 60px,
-#7fa6a8 90px
-);
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: repeating-linear-gradient(
+        90deg,
+        #b07d3b 0px,
+        #b07d3b 40px,
+        #6f8f8f 40px,
+        #6f8f8f 80px
+    );
 }
 
-#boardWrapper{
-display:flex;
-justify-content:center;
-margin-top:40px;
+/* Главный контейнер */
+#startScreen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
 }
 
-#board{
-background:rgba(255,255,255,0.9);
-padding:30px;
-border-radius:20px;
-display:grid;
-grid-template-columns: 350px 100px 100px 100px;
-gap:20px;
+/* Белые блоки */
+.start-box {
+    background: rgba(255,255,255,0.9);
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 900px;
+    margin: 20px auto;
 }
 
-.category{
-font-size:28px;
-font-weight:bold;
-display:flex;
-align-items:center;
+/* Заголовок */
+h1 {
+    background: rgba(255,255,255,0.9);
+    padding: 20px;
+    border-radius: 12px;
 }
 
-.tile{
-height:70px;
-display:flex;
-align-items:center;
-justify-content:center;
-border-radius:10px;
-font-size:24px;
-cursor:pointer;
-border:2px solid #6a8fb5;
+/* Список сказок */
+ul {
+    line-height: 1.6;
 }
 
-.v10{background:#cfe3d1;}
-.v20{background:#d7dee9;}
-.v30{background:#ead3c6;}
-
-.tile.used{
-background:#aaa;
-cursor:default;
+/* Кнопка */
+button {
+    padding: 12px 25px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: none;
+    background: #4a77c5;
+    color: white;
+    cursor: pointer;
 }
 
-#scoreBoard{
-position:absolute;
-right:40px;
-top:100px;
-background:white;
-padding:20px;
-border-radius:12px;
-font-size:26px;
+button:hover {
+    background: #355ca0;
+}
+
+/* Счет */
+#scoreBoard {
+    position: fixed;
+    right: 30px;
+    top: 100px;
+    background: #111;
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    font-size: 20px;
 }
