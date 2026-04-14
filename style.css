@@ -246,3 +246,60 @@ list-style:disc;
 .tales-list li{
 margin-bottom:6px;
 }
+
+/* ===== СТАРТОВЫЙ ЭКРАН ===== */
+
+#startScreen{
+display:flex;
+flex-direction:column;
+align-items:center;
+padding:40px;
+}
+
+/* Заголовок */
+.titleBox{
+background:white;
+padding:15px 40px;
+border-radius:12px;
+margin-bottom:20px;
+}
+
+/* Картинка */
+.hero{
+width:900px;
+max-width:90%;
+background:white;
+padding:15px;
+border-radius:12px;
+}
+
+/* Белая карточка с текстом */
+.rules{
+background:white;
+padding:30px;
+border-radius:12px;
+margin-top:20px;
+max-width:800px;
+width:90%;
+}
+
+/* Список сказок */
+.tales-list{
+margin-bottom:20px;
+}
+
+/* Кнопка */
+#startGame{
+margin-top:20px;
+padding:12px 30px;
+font-size:18px;
+background:#4a77c5;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+#startGame:hover{
+background:#365da0;
+}
